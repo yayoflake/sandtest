@@ -3,7 +3,8 @@ const fetchButton = document.getElementById("fetch-button");
 const xhrP = document.getElementById("xhr-p");
 const fetchP = document.getElementById("fetch-p");
 
-const url = "https://yayoflake.github.io/sandtest/aaa.html";
+//const url = "https://yayoflake.github.io/sandtest/aaa.html";
+const url = "https://yayoflake.github.io/sandtest/result.html?id=ss&password=";
 
 const data = "data";
 
