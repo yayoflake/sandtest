@@ -1,10 +1,25 @@
-import "./styles.css";
+const xhrButton = document.getElementById("xhr-button");
+const fetchButton = document.getElementById("fetch-button");
+const xhrP = document.getElementById("xhr-p");
+const fetchP = document.getElementById("fetch-p");
 
-document.getElementById("app").innerHTML = `
-<h1>Hello Vanilla!</h1>
-<div>
-  We use the same configuration as Parcel to bundle this sandbox, you can find more
-  info about Parcel 
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
-</div>
-`;
+const url = "https://learnwebcode.github.io/json-example/animals-1.json";
+
+const onClickFetch = () =>
+  fetch(url)
+    .then((res) => res.json())
+    .then((resJson) => {
+      fetchP.textContent = JSON.stringify(resJson);
+    });
+
+const onClickXhr = () => {
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", url);
+  xhr.onload = () => {
+    xhrP.textContent = xhr.responseText;
+  };
+  xhr.send();
+};
+
+xhrButton.addEventListener("click", onClickXhr);
+fetchButton.addEventListener("click", onClickFetch);
